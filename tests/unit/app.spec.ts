@@ -1,4 +1,4 @@
-import { App } from "@/App.vue"
+import  App  from "@/App.vue"
 import { mount } from "@vue/test-utils";
 
 describe('App.vue', () => {
@@ -6,13 +6,17 @@ describe('App.vue', () => {
     const wrapper = mount(App)
     
     if(expect(wrapper.find('h3').exists())){
-      expect(wrapper.text()).toBe('0')
+      expect(wrapper.find('h3').text()).toBe('0')
     }
 
-    expect(wrapper.find('button').exists())
+    if(expect(wrapper.find('button').exists())){
+      expect(wrapper.find('button').text()).toBe("Increment")
+    }
 
   })
-  it('THE INCREMENT BUTTON ADD ONES TO COUNTER', () => {
-
+  it('THE INCREMENT BUTTON ADD ONES TO COUNTER', async () => {
+    const wrapper = mount(App)
+    await wrapper.find('button').trigger('click')
+    expect(wrapper.find('h3').text()).toBe('1')
   }) 
 })
