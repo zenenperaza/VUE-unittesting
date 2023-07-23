@@ -25,5 +25,10 @@ npm run test:unit
 npm run lint
 ```
 
+### npm install --save-dev @types/jest
+```
+npm install --save-dev @types/jest
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
